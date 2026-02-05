@@ -1,0 +1,46 @@
+clc ;
+clear;
+load g_sfc_ude.m
+
+
+% 
+t1 = state_ude(1,:);
+
+x_ude = state_ude(2,:);
+y_ude = state_ude(3,:);
+dx_ude = state_ude(4,:);
+dy_ude= state_ude(5,:);
+ux = state_ude(6,:);
+uy = state_ude(7,:);
+dist_x=state_ude(8,:);
+dist_y=state_ude(9,:);
+dx_hat = state_ude(10,:);
+dy_hat = state_ude(11,:);
+
+
+
+
+% 
+figure;
+plot(t1,x_ude,'k');grid on;
+xlabel('time (s)');
+ylabel('x (m)');
+% 
+figure;
+plot(t1,y_ude,'k');grid on;
+xlabel('time (s)');
+ylabel('y (m)');
+
+figure;
+plot(t1,dist_x,t1,dx_hat,'g');grid on;
+xlabel('time (s)');
+ylabel('dx_hat', Interpreter='latex');
+legend('actual','estimated');
+
+figure;
+plot(t1,dist_y,t1,dy_hat,'g');grid on;
+xlabel('time (s)');
+ylabel('dy_hat', Interpreter='latex');
+legend('actual','estimated');
+
+
